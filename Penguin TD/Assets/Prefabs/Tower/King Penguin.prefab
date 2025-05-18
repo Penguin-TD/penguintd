@@ -539,7 +539,7 @@ GameObject:
   - component: {fileID: 7643476226331387605}
   m_Layer: 6
   m_Name: King Penguin
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -673,7 +673,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -691,16 +691,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92d4357230ab74f799dd9e93511dee9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 0
+  range: 1.5
   damage: 0
   fireRate: 0
-  hunger: 50
-  maxHunger: 50
+  hunger: 500
+  maxHunger: 500
   hungerDecreaseRate: 1
   cost: 0
   first: 1
   last: 0
   strong: 0
+  passive: 0
 --- !u!114 &3204232303556616359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -715,8 +716,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rangeSprite: {fileID: 7392200727352673890}
   rangeCollider: {fileID: 866083328124021574}
-  gray: {r: 0.29803923, g: 0.29803923, b: 0.29803923, a: 0}
-  red: {r: 0, g: 0, b: 0, a: 0}
+  gray: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.39215687}
+  red: {r: 0.93333334, g: 0.58431375, b: 0.58431375, a: 0.7176471}
 --- !u!114 &7643476226331387605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -729,12 +730,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0887dabff53af457eafd9ff237cf5846, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levels:
-  - range: 0
-    damage: 0
-    fireRate: 0
-    cost: 0
-  towerRange: {fileID: 0}
+  levels: []
+  towerRange: {fileID: 6794625164397559715}
 --- !u!1 &7447640157587912717
 GameObject:
   m_ObjectHideFlags: 0

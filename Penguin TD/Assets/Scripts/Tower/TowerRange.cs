@@ -71,12 +71,20 @@ public class TowerRange : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
+        if (Tower.passive)
+        {
+            return;
+        }
         if(collision.gameObject.tag == "Enemy") {
             targets.Add(collision.gameObject);
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision) {
+        if (Tower.passive)
+        {
+            return;
+        }
         if(collision.gameObject.tag == "Enemy") {
             targets.Remove(collision.gameObject);
         }

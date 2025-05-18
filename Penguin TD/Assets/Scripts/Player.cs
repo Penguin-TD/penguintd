@@ -18,6 +18,6 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moneyGUI.text = "Money: " + money.ToString();
+        moneyGUI.text = "Fish: " + money.ToString();
     }
 }

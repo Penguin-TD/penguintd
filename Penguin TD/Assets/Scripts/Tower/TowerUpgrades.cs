@@ -22,7 +22,14 @@ public class TowerUpgrades : MonoBehaviour
     void Awake()
     {
         tower = GetComponent<Tower>();
-		currentCost = levels[0].cost.ToString();
+        if (levels.Length == 0)
+        {
+	        currentCost = "MAX";
+        }
+        else
+        {
+	        currentCost = levels[0].cost.ToString();
+        }
     }
 
     public void Upgrade()

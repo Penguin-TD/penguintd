@@ -10,8 +10,8 @@ public class Tower : MonoBehaviour
     public float range = 4f;
     public float damage = 25f;
     public float fireRate = 1f;
-    [SerializeField] private float hunger = 100f;
-    [SerializeField] private float maxHunger = 100f;
+    public float hunger = 100f;
+    public float maxHunger = 100f;
     [SerializeField] private float hungerDecreaseRate = 1f;
     public int cost = 50;
 
@@ -19,13 +19,10 @@ public class Tower : MonoBehaviour
     public bool first = true;
     public bool last = false;
     public bool strong = false;
+    public bool passive = false;
 
     [NonSerialized] public GameObject target;
     private float cooldown = 0f;
-
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void Update()
@@ -41,15 +38,21 @@ public class Tower : MonoBehaviour
             }
             
         }
-        
-        hunger -= Time.deltaTime * hungerDecreaseRate;
-        if (hunger < 0)
+
+        if (!gameObject.GetComponent<TowerPlacement>().isPlacing)
         {
-            if (gameObject.name.Replace("(Clone)", "").Trim() == "King Penguin")
+            hunger -= Time.deltaTime * hungerDecreaseRate;
+            if (hunger < 0)
             {
-                GameOverManager.main.GameOver();
+                if (gameObject.name.Replace("(Clone)", "").Trim() == "King Penguin")
+                {
+                    GameOverManager.main.GameOver();
+                }
+
+                Destroy(gameObject);
             }
-            Destroy(gameObject);
         }
     }
+    
+    
 }
