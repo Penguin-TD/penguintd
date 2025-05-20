@@ -25,6 +25,11 @@ public class Tower : MonoBehaviour
     private float cooldown = 0f;
 
     // Update is called once per frame
+    void Awake()
+    {
+        hunger = maxHunger;
+    }
+    
     void Update()
     {
         if(target) {
@@ -41,7 +46,15 @@ public class Tower : MonoBehaviour
 
         if (!gameObject.GetComponent<TowerPlacement>().isPlacing)
         {
-            hunger -= Time.deltaTime * hungerDecreaseRate;
+            if (gameObject.name.Replace("(Clone)", "").Trim() == "King Penguin")
+            {
+                hunger -= Time.deltaTime * hungerDecreaseRate * Player.main.hungerMultiplier;
+            }
+            else
+            {
+                hunger -= Time.deltaTime * hungerDecreaseRate;
+            }
+            
             if (hunger < 0)
             {
                 if (gameObject.name.Replace("(Clone)", "").Trim() == "King Penguin")
@@ -50,6 +63,19 @@ public class Tower : MonoBehaviour
                 }
 
                 Destroy(gameObject);
+            }
+            
+            Color tmp = gameObject.GetComponent<SpriteRenderer>().color;
+            tmp.a = hunger / maxHunger;
+            gameObject.GetComponent<SpriteRenderer>().color = tmp;
+            foreach (Transform child in transform)
+            {
+                if (child.gameObject.name != "Range")
+                {
+                    Color tmp2 = child.gameObject.GetComponent<SpriteRenderer>().color;
+                    tmp2.a = hunger / maxHunger;
+                    child.gameObject.GetComponent<SpriteRenderer>().color = tmp2;
+                }
             }
         }
     }

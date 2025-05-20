@@ -132,7 +132,7 @@ MonoBehaviour:
   maxHealth: 50
   health: 50
   moveSpeed: 2
-  moneyOnDeath: 50
+  moneyOnDeath: 20
 --- !u!60 &6340130276891308591
 PolygonCollider2D:
   m_ObjectHideFlags: 0

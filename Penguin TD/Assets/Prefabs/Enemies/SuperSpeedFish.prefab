@@ -220,9 +220,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 784280bb158984bd0b9a406e36743b7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 10
+  maxHealth: 50
   health: 10
-  moveSpeed: 4
+  moveSpeed: 6
   moneyOnDeath: 50
 --- !u!60 &2817123466766154391
 PolygonCollider2D:

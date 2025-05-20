@@ -204,12 +204,21 @@ public class TowerManager : MonoBehaviour
         }
     }
     
-    public void FeedTower()
+    public void FeedTower(int amount = -1)
     {
         if (selectedTower)
         {
-            int amount = Math.Min(Convert.ToInt32(Math.Round(selectedTower.GetComponent<Tower>().maxHunger) - Math.Round(selectedTower.GetComponent<Tower>().hunger)), Player.main.money);
-            selectedTower.GetComponent<Tower>().hunger += amount;
+            Tower tower = selectedTower.GetComponent<Tower>();
+            if(amount == -1) 
+			{
+				amount = Math.Min(Convert.ToInt32(Math.Round(tower.maxHunger) - Math.Round(tower.hunger)), Player.main.money);
+            }
+            else
+            {
+                amount = Math.Min(Math.Min(Convert.ToInt32(Math.Round(tower.maxHunger) - Math.Round(tower.hunger)), Player.main.money), amount);
+            }
+            
+			tower.hunger += amount;
             Player.main.money -= amount;
         }
     }

@@ -49,6 +49,7 @@ public class SupportPenguin : MonoBehaviour
             if (healTargets.Count > 0)
             {
                 cooldown = 0f;
+                gameObject.GetComponent<Tower>().hunger -= healAmount;
                 Debug.Log("Number of targets within range: " + healTargets.Count);
             }
 

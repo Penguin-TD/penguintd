@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
 
     void Awake() {
         rb = GetComponent<Rigidbody2D>();
+        health = maxHealth;
     }
     
     void Start()
@@ -32,7 +33,9 @@ public class Enemy : MonoBehaviour
             if(currentIndex < EnemyManager.main.checkpoints.Length - 1) {
                 ++currentIndex;
             }
-            else {
+            else
+            {
+                Player.main.hungerMultiplier *= 1.01f;
                 Destroy(gameObject);
             }
         }
@@ -40,6 +43,16 @@ public class Enemy : MonoBehaviour
         if(health <= 0) {
             Player.main.money += moneyOnDeath;
             Destroy(gameObject);
+        }
+        
+        Color tmp = gameObject.GetComponent<SpriteRenderer>().color;
+        tmp.a = health / maxHealth;
+        gameObject.GetComponent<SpriteRenderer>().color = tmp;
+        foreach (Transform child in transform)
+        {
+            Color tmp2 = child.gameObject.GetComponent<SpriteRenderer>().color;
+            tmp2.a = health / maxHealth;
+            child.gameObject.GetComponent<SpriteRenderer>().color = tmp2;
         }
     }
     

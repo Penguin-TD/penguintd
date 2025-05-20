@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public static Player main;
 
     public int money = 0;
+    public float hungerMultiplier = 1f;
     [SerializeField] private TextMeshProUGUI moneyGUI;
     void Start()
     {

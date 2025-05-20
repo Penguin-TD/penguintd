@@ -132,7 +132,7 @@ MonoBehaviour:
   maxHealth: 75
   health: 75
   moveSpeed: 1
-  moneyOnDeath: 50
+  moneyOnDeath: 15
 --- !u!61 &-1201479890600076495
 BoxCollider2D:
   m_ObjectHideFlags: 0
