@@ -64,19 +64,6 @@ public class Tower : MonoBehaviour
 
                 Destroy(gameObject);
             }
-            
-            Color tmp = gameObject.GetComponent<SpriteRenderer>().color;
-            tmp.a = hunger / maxHunger;
-            gameObject.GetComponent<SpriteRenderer>().color = tmp;
-            foreach (Transform child in transform)
-            {
-                if (child.gameObject.name != "Range")
-                {
-                    Color tmp2 = child.gameObject.GetComponent<SpriteRenderer>().color;
-                    tmp2.a = hunger / maxHunger;
-                    child.gameObject.GetComponent<SpriteRenderer>().color = tmp2;
-                }
-            }
         }
     }
     

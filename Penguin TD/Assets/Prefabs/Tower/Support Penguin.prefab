@@ -176,7 +176,7 @@ MonoBehaviour:
   fireRate: 1000
   hunger: 400
   maxHunger: 400
-  hungerDecreaseRate: 2
+  hungerDecreaseRate: 1
   cost: 100
   first: 0
   last: 0

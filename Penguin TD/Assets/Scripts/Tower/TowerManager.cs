@@ -46,6 +46,7 @@ public class TowerManager : MonoBehaviour
             {
                 if (placingTower.name.Replace("(Clone)", "").Trim() == "King Penguin")
                 {
+                    Player.main.gameStart = true;
                     startPromptPanel.SetActive(false);
                     kingPenguinSelectPanel.SetActive(false);
                     playerStats.SetActive(true);
@@ -124,6 +125,12 @@ public class TowerManager : MonoBehaviour
                 hunger.text = "Hunger: " + Math.Round(selectedTower.GetComponent<Tower>().hunger).ToString();
             }
         }
+
+        if (!selectedTower)
+        {
+            towerDetailsPanel.SetActive(false);
+        }
+        
     }
     private void ClearPlaced()
     {

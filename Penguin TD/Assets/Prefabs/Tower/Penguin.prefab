@@ -174,11 +174,12 @@ MonoBehaviour:
   fireRate: 1
   hunger: 150
   maxHunger: 150
-  hungerDecreaseRate: 2
+  hungerDecreaseRate: 1
   cost: 50
   first: 1
   last: 0
   strong: 0
+  passive: 0
 --- !u!114 &-4919439293063379569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,11 +215,11 @@ MonoBehaviour:
     cost: 100
   - range: 4
     damage: 30
-    fireRate: 1.2
+    fireRate: 0.9
     cost: 100
   - range: 5
     damage: 40
-    fireRate: 1.5
+    fireRate: 0.8
     cost: 150
   towerRange: {fileID: 7098413814989220048}
 --- !u!1 &7757708461305536769

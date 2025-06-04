@@ -44,16 +44,6 @@ public class Enemy : MonoBehaviour
             Player.main.money += moneyOnDeath;
             Destroy(gameObject);
         }
-        
-        Color tmp = gameObject.GetComponent<SpriteRenderer>().color;
-        tmp.a = health / maxHealth;
-        gameObject.GetComponent<SpriteRenderer>().color = tmp;
-        foreach (Transform child in transform)
-        {
-            Color tmp2 = child.gameObject.GetComponent<SpriteRenderer>().color;
-            tmp2.a = health / maxHealth;
-            child.gameObject.GetComponent<SpriteRenderer>().color = tmp2;
-        }
     }
     
     void FixedUpdate()
@@ -65,6 +55,15 @@ public class Enemy : MonoBehaviour
 
     public void Damage(float damage) {
         health -= damage;
+        Transform overlay = transform.Find("Overlay");
+
+        foreach (Transform t in overlay)
+        {
+            Color tmp = t.GetComponent<SpriteRenderer>().color;
+            tmp.a = 1 - health / maxHealth;
+            t.GetComponent<SpriteRenderer>().color = tmp;
+        }
+
     }
 
 }

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using System;
 
 public class TowerPlacement : MonoBehaviour
@@ -27,7 +28,9 @@ public class TowerPlacement : MonoBehaviour
             transform.position = mousePosition;
         }
 
-        if (Input.GetMouseButtonDown(0) && !isRestricted && tower.cost <= Player.main.money)
+        bool towerOverUI = (Player.main.gameStart && EventSystem.current.IsPointerOverGameObject());
+
+        if (Input.GetMouseButtonDown(0) && !towerOverUI && !isRestricted && tower.cost <= Player.main.money)
         {
             rangeCollider.enabled = true;
             isPlacing = false;
