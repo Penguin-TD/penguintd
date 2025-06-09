@@ -9,7 +9,7 @@ public class TowerPlacement : MonoBehaviour
     [SerializeField] private Color gray;
     [SerializeField] private Color red;
     [NonSerialized] public bool isPlacing = true;
-    [NonSerialized] public bool isRestricted = false;
+    [NonSerialized] public int isRestricted = 0;
 
     private Tower tower;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -30,7 +30,7 @@ public class TowerPlacement : MonoBehaviour
 
         bool towerOverUI = (Player.main.gameStart && EventSystem.current.IsPointerOverGameObject());
 
-        if (Input.GetMouseButtonDown(0) && !towerOverUI && !isRestricted && tower.cost <= Player.main.money)
+        if (Input.GetMouseButtonDown(0) && !towerOverUI && isRestricted == 0 && tower.cost <= Player.main.money)
         {
             rangeCollider.enabled = true;
             isPlacing = false;
@@ -39,7 +39,7 @@ public class TowerPlacement : MonoBehaviour
             Player.main.money -= tower.cost;
         }
 
-        if (isRestricted)
+        if (isRestricted > 0)
         {
             rangeSprite.color = red;
         }
@@ -55,7 +55,7 @@ public class TowerPlacement : MonoBehaviour
         if ((collision.gameObject.tag == "Restricted" || collision.gameObject.tag == "Tower") && isPlacing)
         {
             Debug.Log("Tower over restricted area");
-            isRestricted = true;
+            ++isRestricted;
         }
     }
     
@@ -63,7 +63,7 @@ public class TowerPlacement : MonoBehaviour
     {
         if ((collision.gameObject.tag == "Restricted" || collision.gameObject.tag == "Tower") && isPlacing)
         {
-            isRestricted = false;
+            --isRestricted;
         }
     }
 }
