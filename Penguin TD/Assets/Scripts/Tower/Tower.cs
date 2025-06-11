@@ -14,15 +14,15 @@ public class Tower : MonoBehaviour
     public float maxHunger = 100f;
     [SerializeField] private float hungerDecreaseRate = 1f;
     public int cost = 50;
+	public string ID = "penguin";
 
     [Header("Target Mode")]
     public bool first = true;
     public bool last = false;
     public bool strong = false;
-    public bool passive = false;
+    public bool support = false;
 
     [NonSerialized] public GameObject target;
-    private float cooldown = 0f;
 
     // Update is called once per frame
     void Awake()
@@ -32,18 +32,6 @@ public class Tower : MonoBehaviour
     
     void Update()
     {
-        if(target) {
-            transform.right = target.transform.position - transform.position;
-            if(cooldown >= fireRate) {
-                target.GetComponent<Enemy>().Damage(damage);
-                cooldown = 0.0f;
-            }
-            else {
-                cooldown += Time.deltaTime;
-            }
-            
-        }
-
         if (!gameObject.GetComponent<TowerPlacement>().isPlacing)
         {
             if (gameObject.name.Replace("(Clone)", "").Trim() == "King Penguin")

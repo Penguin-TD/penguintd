@@ -501,6 +501,7 @@ GameObject:
   - component: {fileID: 5341521502621450310}
   - component: {fileID: 3204232303556616359}
   - component: {fileID: 7643476226331387605}
+  - component: {fileID: 6950173574023127197}
   m_Layer: 6
   m_Name: King Penguin
   m_TagString: Tower
@@ -666,10 +667,11 @@ MonoBehaviour:
   maxHunger: 150
   hungerDecreaseRate: 1
   cost: 0
+  ID: King
   first: 1
   last: 0
   strong: 0
-  passive: 0
+  support: 0
 --- !u!114 &3204232303556616359
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,6 +702,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels: []
   towerRange: {fileID: 6794625164397559715}
+--- !u!114 &6950173574023127197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7433851985022826471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8174e920000424f9b95c8559cbecc297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targets: []
+  Tower: {fileID: 5341521502621450310}
 --- !u!1 &7447640157587912717
 GameObject:
   m_ObjectHideFlags: 0
