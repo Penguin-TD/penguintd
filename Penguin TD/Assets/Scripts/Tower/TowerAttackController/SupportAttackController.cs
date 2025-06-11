@@ -63,7 +63,7 @@ public class SupportAttackController : MonoBehaviour, IAttackController
             if (healTargets.Count > 0)
             {
                 cooldown = 0f;
-                gameObject.GetComponent<Tower>().hunger -= healAmount;
+                _tower.hunger -= healAmount;
                 Debug.Log("Number of targets within range: " + healTargets.Count);
             }
 

@@ -396,7 +396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92d4357230ab74f799dd9e93511dee9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 100
+  range: 1.5
   damage: 75
   fireRate: 5
   hunger: 150
@@ -437,15 +437,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - range: 100
+  - range: 1.5
     damage: 75
     fireRate: 5
     cost: 100
-  - range: 100
+  - range: 1.5
     damage: 85
     fireRate: 5
     cost: 100
-  - range: 100
+  - range: 1.5
     damage: 100
     fireRate: 4
     cost: 100

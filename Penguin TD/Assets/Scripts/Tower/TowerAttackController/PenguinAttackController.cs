@@ -27,7 +27,7 @@ public class PenguinAttackController : MonoBehaviour, IAttackController
     {
         if(_target) {
             transform.right = _target.transform.position - transform.position;
-            if(cooldown >= Tower.fireRate) {
+            if(cooldown >= _tower.fireRate) {
                 _target.GetComponent<Enemy>().Damage(_tower.damage);
                 cooldown = 0.0f;
             }

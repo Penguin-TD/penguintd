@@ -783,8 +783,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c71381c14d79470baa47f5a7db54dba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 100
+  money: 300
   hungerMultiplier: 1
+  gameStart: 0
   moneyGUI: {fileID: 971447685}
 --- !u!114 &175013424
 MonoBehaviour:
