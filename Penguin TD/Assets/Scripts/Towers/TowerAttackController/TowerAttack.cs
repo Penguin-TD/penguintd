@@ -6,12 +6,14 @@ public class TowerAttack : MonoBehaviour
 {
     public List<GameObject> targets = new List<GameObject>();
     [SerializeField] private Tower Tower;
+    [SerializeField] private GameObject Projectile;
     private IAttackController attackController;
     void Start()
     {
         String ScriptName = Tower.ID + "AttackController";
         System.Type MyScriptType = System.Type.GetType (ScriptName + ",Assembly-CSharp");
         attackController = (IAttackController)gameObject.AddComponent(MyScriptType);
+        attackController.Projectile = Projectile;
     }
 
     // Update is called once per frame

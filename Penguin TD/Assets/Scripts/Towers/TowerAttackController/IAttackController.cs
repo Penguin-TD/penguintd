@@ -4,5 +4,5 @@ public interface IAttackController
 {
     public Tower Tower { get; set; }
     public GameObject Target { get; set; }
-    
+    public GameObject Projectile { get; set; }
 }

@@ -8,7 +8,7 @@ public class SupportAttackController : MonoBehaviour, IAttackController
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private Tower _tower;
     private GameObject _target;
-
+    private GameObject _projectile;
     public Tower Tower
     {
         get => _tower;
@@ -20,6 +20,12 @@ public class SupportAttackController : MonoBehaviour, IAttackController
         get => _target;
         set => _target = value;
     }
+    public GameObject Projectile
+    {
+        get => _projectile;
+        set => _projectile = value;
+    }
+    
     [System.Serializable]
     class Level
     {

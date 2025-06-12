@@ -12,6 +12,7 @@ public class Tower : MonoBehaviour
     public float fireRate = 1f;
     public float hunger = 100f;
     public float maxHunger = 100f;
+    public float projectileSpeed = 20f;
     [SerializeField] private float hungerDecreaseRate = 1f;
     public int cost = 50;
 	public string ID = "penguin";

@@ -176,6 +176,7 @@ MonoBehaviour:
   fireRate: 1000
   hunger: 400
   maxHunger: 400
+  projectileSpeed: 0.1
   hungerDecreaseRate: 1
   cost: 100
   ID: Support
@@ -239,6 +240,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targets: []
   Tower: {fileID: 2121884712868160227}
+  Projectile: {fileID: 676248602881187668, guid: 416f0eb2e0e534479a58189783e8d5af, type: 3}
 --- !u!1 &3866455968037755390
 GameObject:
   m_ObjectHideFlags: 0

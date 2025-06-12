@@ -401,6 +401,7 @@ MonoBehaviour:
   fireRate: 5
   hunger: 150
   maxHunger: 150
+  projectileSpeed: 20
   hungerDecreaseRate: 1
   cost: 300
   ID: Sniper
@@ -464,6 +465,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targets: []
   Tower: {fileID: 7670628479818479044}
+  Projectile: {fileID: 676248602881187668, guid: 416f0eb2e0e534479a58189783e8d5af, type: 3}
 --- !u!1 &8909991071593592288
 GameObject:
   m_ObjectHideFlags: 0

@@ -665,6 +665,7 @@ MonoBehaviour:
   fireRate: 0
   hunger: 150
   maxHunger: 150
+  projectileSpeed: 20
   hungerDecreaseRate: 1
   cost: 0
   ID: King
@@ -716,6 +717,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targets: []
   Tower: {fileID: 5341521502621450310}
+  Projectile: {fileID: 676248602881187668, guid: 416f0eb2e0e534479a58189783e8d5af, type: 3}
 --- !u!1 &7447640157587912717
 GameObject:
   m_ObjectHideFlags: 0

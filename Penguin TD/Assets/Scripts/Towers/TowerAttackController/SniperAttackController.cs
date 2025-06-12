@@ -5,6 +5,7 @@ public class SniperAttackController : MonoBehaviour, IAttackController
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     private Tower _tower;
     private GameObject _target;
+    private GameObject _projectile;
 
     public Tower Tower
     {
@@ -16,6 +17,11 @@ public class SniperAttackController : MonoBehaviour, IAttackController
     {
         get => _target;
         set => _target = _target;
+    }
+    public GameObject Projectile
+    {
+        get => _projectile;
+        set => _projectile = value;
     }
     private float cooldown = 0f;
     void Start()

@@ -175,6 +175,7 @@ MonoBehaviour:
   fireRate: 1
   hunger: 150
   maxHunger: 150
+  projectileSpeed: 5
   hungerDecreaseRate: 1
   cost: 50
   ID: Penguin
@@ -238,6 +239,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   targets: []
   Tower: {fileID: 7554365125679758880}
+  Projectile: {fileID: 676248602881187668, guid: 416f0eb2e0e534479a58189783e8d5af, type: 3}
 --- !u!1 &7757708461305536769
 GameObject:
   m_ObjectHideFlags: 0
