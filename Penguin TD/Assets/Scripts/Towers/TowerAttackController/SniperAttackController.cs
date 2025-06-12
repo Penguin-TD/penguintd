@@ -23,10 +23,8 @@ public class SniperAttackController : MonoBehaviour, IAttackController
         get => _projectile;
         set => _projectile = value;
     }
-    private float cooldown = 0f;
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -91,12 +89,9 @@ public class SniperAttackController : MonoBehaviour, IAttackController
             }
             
             transform.right = _target.transform.position - transform.position;
-            if(cooldown >= _tower.fireRate) {
+            if(_tower.cooldown >= _tower.fireRate) {
                 _target.GetComponent<Enemy>().Damage(_tower.damage);
-                cooldown = 0.0f;
-            }
-            else {
-                cooldown += Time.deltaTime;
+                _tower.cooldown = 0.0f;
             }
         }
     }

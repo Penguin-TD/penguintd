@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float maxHealth;
     public float health = 50.0f;
-    [SerializeField] private float moveSpeed = 2.0f;
+    public float moveSpeed = 2.0f;
     [SerializeField] private int moneyOnDeath = 50;
     public bool isPriority = false;
     private Rigidbody2D rb;

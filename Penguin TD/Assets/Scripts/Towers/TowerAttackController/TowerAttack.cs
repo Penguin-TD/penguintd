@@ -8,18 +8,18 @@ public class TowerAttack : MonoBehaviour
     [SerializeField] private Tower Tower;
     [SerializeField] private GameObject Projectile;
     private IAttackController attackController;
-    void Start()
+    void Awake()
     {
         String ScriptName = Tower.ID + "AttackController";
         System.Type MyScriptType = System.Type.GetType (ScriptName + ",Assembly-CSharp");
         attackController = (IAttackController)gameObject.AddComponent(MyScriptType);
         attackController.Projectile = Projectile;
+        attackController.Tower = Tower;
     }
 
     // Update is called once per frame
     void Update()
     {
-        attackController.Tower = Tower;
         if(targets.Count > 0) {
             if(Tower.first) {
                 float minDistance = Mathf.Infinity;

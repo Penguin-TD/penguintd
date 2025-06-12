@@ -23,6 +23,7 @@ public class Tower : MonoBehaviour
     public bool strong = false;
     public bool support = false;
     public int priority = 0;
+    public float cooldown = 0.0f;
 
     [NonSerialized] public GameObject target;
 
@@ -30,6 +31,7 @@ public class Tower : MonoBehaviour
     void Awake()
     {
         hunger = maxHunger;
+        cooldown = fireRate - 0.5f;
     }
     
     void Update()
@@ -55,6 +57,8 @@ public class Tower : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+
+        cooldown += Time.deltaTime;
     }
     
     

@@ -37,8 +37,6 @@ public class SupportAttackController : MonoBehaviour, IAttackController
     [SerializeField] private float healAmount = 50f;
     [SerializeField] private CircleCollider2D rangeCollider;
     [SerializeField] private LayerMask towerLayer;
-
-    private float cooldown = 0f;
     
     void Update()
     {
@@ -47,8 +45,7 @@ public class SupportAttackController : MonoBehaviour, IAttackController
             return;
         }
         int level = gameObject.GetComponent<TowerUpgrades>().currentLevel;
-        cooldown += Time.deltaTime;
-        if (cooldown > levels[level].healDelay)
+        if (_tower.cooldown > levels[level].healDelay)
         {
             List<Collider2D> targets = new List<Collider2D>();
             Physics2D.OverlapCollider(rangeCollider, targets);
@@ -68,7 +65,7 @@ public class SupportAttackController : MonoBehaviour, IAttackController
 
             if (healTargets.Count > 0)
             {
-                cooldown = 0f;
+                _tower.cooldown = 0f;
                 _tower.hunger -= healAmount;
                 Debug.Log("Number of targets within range: " + healTargets.Count);
             }

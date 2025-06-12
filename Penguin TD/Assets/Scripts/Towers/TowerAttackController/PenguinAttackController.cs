@@ -23,10 +23,8 @@ public class PenguinAttackController : MonoBehaviour, IAttackController
         get => _projectile;
         set => _projectile = value;
     }
-    private float cooldown = 0f;
     void Start()
     {
-        
     }
 
     void Update()
@@ -34,17 +32,14 @@ public class PenguinAttackController : MonoBehaviour, IAttackController
         if(_target)
         {
             transform.right = _target.transform.position - transform.position;
-            if(cooldown >= _tower.fireRate)
+            if(_tower.cooldown >= _tower.fireRate)
             {
                 Bobber projectile = Instantiate(_projectile, transform.position, Quaternion.identity).GetComponent<Bobber>();
                 projectile.Direction = (_target.transform.position - transform.position);
                 projectile.Damage = _tower.damage;
                 projectile.Speed = _tower.projectileSpeed;
                 projectile.Tower = _tower;
-                cooldown = 0.0f;
-            }
-            else {
-                cooldown += Time.deltaTime;
+                _tower.cooldown = 0.0f;
             }
             
         }
