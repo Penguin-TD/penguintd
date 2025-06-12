@@ -22,6 +22,7 @@ public class Tower : MonoBehaviour
     public bool last = false;
     public bool strong = false;
     public bool support = false;
+    public int priority = 0;
 
     [NonSerialized] public GameObject target;
 

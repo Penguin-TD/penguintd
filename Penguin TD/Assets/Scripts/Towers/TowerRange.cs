@@ -25,6 +25,10 @@ public class TowerRange : MonoBehaviour
         }
         if(collision.gameObject.tag == "Enemy")
         {
+            if (collision.gameObject.GetComponent<Enemy>().isPriority)
+            {
+                ++Tower.priority;
+            }
             towerAttack.targets.Add(collision.gameObject);
         }
     }
@@ -35,6 +39,10 @@ public class TowerRange : MonoBehaviour
             return;
         }
         if(collision.gameObject.tag == "Enemy") {
+            if (collision.gameObject.GetComponent<Enemy>().isPriority)
+            {
+                --Tower.priority;
+            }
             towerAttack.targets.Remove(collision.gameObject);
         }
     }

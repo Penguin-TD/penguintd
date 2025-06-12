@@ -399,6 +399,7 @@ MonoBehaviour:
   health: 30
   moveSpeed: 6
   moneyOnDeath: 50
+  ID: Super Speed
 --- !u!60 &2817123466766154391
 PolygonCollider2D:
   m_ObjectHideFlags: 0

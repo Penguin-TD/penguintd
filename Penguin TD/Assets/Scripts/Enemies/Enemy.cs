@@ -8,8 +8,10 @@ public class Enemy : MonoBehaviour
     public float health = 50.0f;
     [SerializeField] private float moveSpeed = 2.0f;
     [SerializeField] private int moneyOnDeath = 50;
+    public bool isPriority = false;
     private Rigidbody2D rb;
     private Transform checkpoint;
+    public string ID = "Fish";
 
     [NonSerialized] public int currentIndex = 0;
     [NonSerialized] public float distance = 0.0f;

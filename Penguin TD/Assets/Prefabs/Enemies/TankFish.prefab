@@ -269,6 +269,8 @@ MonoBehaviour:
   health: 150
   moveSpeed: 0.8
   moneyOnDeath: 25
+  isPriority: 1
+  ID: Fish
 --- !u!60 &3221756834196195591
 PolygonCollider2D:
   m_ObjectHideFlags: 0

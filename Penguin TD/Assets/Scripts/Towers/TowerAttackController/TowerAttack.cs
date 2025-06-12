@@ -26,7 +26,12 @@ public class TowerAttack : MonoBehaviour
                 int maxIndex = 0;
                 GameObject firstTarget = null;
 
-                foreach(GameObject target in targets) {
+                foreach(GameObject target in targets)
+                {
+                    if (Tower.priority > 0 && !target.GetComponent<Enemy>().isPriority)
+                    {
+                        continue;
+                    }
                     int index = target.GetComponent<Enemy>().currentIndex;
                     float distance = target.GetComponent<Enemy>().distance;
 
@@ -43,10 +48,14 @@ public class TowerAttack : MonoBehaviour
                 int minIndex = int.MaxValue;
                 GameObject lastTarget = null;
 
-                foreach(GameObject target in targets) {
+                foreach(GameObject target in targets) 
+                {
+                    if (Tower.priority > 0 && !target.GetComponent<Enemy>().isPriority)
+                    {
+                        continue;
+                    }
                     int index = target.GetComponent<Enemy>().currentIndex;
                     float distance = target.GetComponent<Enemy>().distance;
-
                     if(index < minIndex || (index == minIndex && distance > maxDistance)) {
                         minIndex = index;
                         maxDistance = distance;
@@ -59,7 +68,12 @@ public class TowerAttack : MonoBehaviour
                 GameObject strongestTarget = null;
                 float maxHealth = 0;
 
-                foreach(GameObject target in targets) {
+                foreach(GameObject target in targets) 
+                {
+                    if (Tower.priority > 0 && !target.GetComponent<Enemy>().isPriority)
+                    {
+                        continue;
+                    }
                     float health = target.GetComponent<Enemy>().health;
                     if(health > maxHealth) {
                         maxHealth = health;
