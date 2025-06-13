@@ -7,6 +7,7 @@ public class Bobber : MonoBehaviour
     protected float _damage;
     protected Tower _tower;
     protected float _bulletRange; 
+    private int count = 0;
 
     public Vector3 Direction
     {
@@ -58,7 +59,11 @@ public class Bobber : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             collision.gameObject.GetComponent<Enemy>().Damage(_damage);
-            Destroy(gameObject);
+            TowerUpgrades towerUpgrades = _tower.GetComponent<TowerUpgrades>();
+            if (++count >= towerUpgrades.levels[towerUpgrades.currentLevel].pierce)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

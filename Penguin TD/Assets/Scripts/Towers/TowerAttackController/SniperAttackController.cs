@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SniperAttackController : PenguinAttackController
+public class SniperAttackController : AttackController
 {
     // Update is called once per frame
     protected override void Update()

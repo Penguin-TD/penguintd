@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class SupportAttackController : PenguinAttackController
+public class SupportAttackController : AttackController
 {
     class Level
     {

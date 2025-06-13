@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class KingAttackController : PenguinAttackController
+public class KingAttackController : AttackController
 {
     protected override void Update()
     {

@@ -7,12 +7,18 @@ public class TowerAttack : MonoBehaviour
     public List<GameObject> targets = new List<GameObject>();
     [SerializeField] private Tower Tower;
     [SerializeField] private GameObject Projectile;
-    private PenguinAttackController attackController;
+    private AttackController attackController;
     void Awake()
     {
         String ScriptName = Tower.ID + "AttackController";
         System.Type MyScriptType = System.Type.GetType (ScriptName + ",Assembly-CSharp");
-        attackController = (PenguinAttackController)gameObject.AddComponent(MyScriptType);
+        attackController = (AttackController)gameObject.AddComponent(MyScriptType);
+        if(!attackController)
+        {
+            Debug.Log("Fallback triggered");
+            attackController = (AttackController)gameObject.AddComponent<AttackController>();
+        }
+        
         attackController.Projectile = Projectile;
         attackController.Tower = Tower;
     }

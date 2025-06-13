@@ -1,46 +1,33 @@
 using UnityEngine;
+using System.Collections;
 
-public class PenguinAttackController : MonoBehaviour
+public class PenguinAttackController : AttackController
 {
-    protected Tower _tower;
-    protected GameObject _target;
-    protected GameObject _projectile;
-    protected Vector3 _direction;
-    public Tower Tower
+    protected override void SpawnProjectile()
     {
-        get => _tower;
-        set => _tower = value;
-    }
-
-    public GameObject Target
-    {
-        get => _target;
-        set => _target = value;
-    }
-    public GameObject Projectile
-    {
-        get => _projectile;
-        set => _projectile = value;
-    }
-    
-    protected virtual void Update()
-    {
-        if(_target)
+        TowerUpgrades towerUpgrades = _tower.GetComponent<TowerUpgrades>();
+        if (towerUpgrades.currentLevel == towerUpgrades.levels.Length - 1)
         {
-            _direction = _target.transform.position - transform.position;
-            transform.right = _direction;
-            if(_tower.cooldown >= _tower.fireRate)
+            for (int i = -1; i <= 1; ++i)
             {
-                SpawnProjectile();
-                _tower.cooldown = 0.0f;
+                StartCoroutine(InstantiateProjectile(i));
             }
+        }
+        else
+        {
+            base.SpawnProjectile();
         }
     }
 
-    protected virtual void SpawnProjectile()
+    IEnumerator InstantiateProjectile(int i)
     {
-        Bobber projectile = Instantiate(_projectile, transform.position, Quaternion.identity).GetComponent<Bobber>();
-        projectile.Direction = _direction;
+        yield return new WaitForSecondsRealtime(0.1f * (1 + i));
+        Debug.Log("Starting coroutine");
+        var projectile = Instantiate(_projectile, transform.position, Quaternion.identity).GetComponent<Bobber>();
+        projectile.transform.right = _direction;
+        var angle = projectile.transform.eulerAngles.z + 30.0f * i;
+        projectile.transform.rotation = Quaternion.Euler(0, 0, angle);
+        projectile.Direction = Quaternion.Euler(0, 0, 30.0f * i) * _direction;
         projectile.Damage = _tower.damage;
         projectile.Speed = _tower.projectileSpeed;
         projectile.BulletRange = _tower.bulletRange;

@@ -2,7 +2,7 @@ using UnityEngine;
 using System;
 using System.Threading;
 
-public class YinYangAttackController : PenguinAttackController
+public class YinYangAttackController : AttackController
 {
     protected override void SpawnProjectile()
     {

@@ -5,15 +5,16 @@ public class TowerUpgrades : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     [System.Serializable]
-    class Level
+    public class Level
     {
         public float range = 4f;
         public float damage = 20f;
         public float fireRate = 1f;
 		public int cost = 100;
+		public int pierce = 1;
     }
     
-    [SerializeField] private Level[] levels = new Level[3];
+    public Level[] levels = new Level[3];
     [NonSerialized] public int currentLevel = 0;
 	[NonSerialized] public string currentCost;
     
