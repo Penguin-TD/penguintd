@@ -64,7 +64,6 @@ public class TowerManager : MonoBehaviour
             {
                 if (EventSystem.current.IsPointerOverGameObject() && EnemyManager.main.gameStart)
                 {
-                    Debug.Log("Pressing UI element");
                     return;
                 }
 
@@ -80,9 +79,7 @@ public class TowerManager : MonoBehaviour
 
                     selectedTower = hit.collider.gameObject;
                     selectedTower.GetComponent<TowerPlacement>().rangeSprite.enabled = true;
-
-                    Debug.Log("Selecting tower");
-
+                    
                     towerDetailsPanel.SetActive(true);
                     towerName.text = selectedTower.name.Replace("(Clone)", "").Trim();
                     towerLevel.text = "Tower LVL: " +
@@ -111,7 +108,6 @@ public class TowerManager : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("Clicked non tower area");
                     if (selectedTower)
                     {
                         ClearSelected();

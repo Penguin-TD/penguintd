@@ -1,34 +1,9 @@
 using UnityEngine;
 
-public class SniperAttackController : MonoBehaviour, IAttackController
+public class SniperAttackController : PenguinAttackController
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private Tower _tower;
-    private GameObject _target;
-    private GameObject _projectile;
-
-    public Tower Tower
-    {
-        get => _tower;
-        set => _tower = value;
-    }
-
-    public GameObject Target
-    {
-        get => _target;
-        set => _target = _target;
-    }
-    public GameObject Projectile
-    {
-        get => _projectile;
-        set => _projectile = value;
-    }
-    void Start()
-    {
-    }
-
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
         if (gameObject.GetComponent<TowerPlacement>().isPlacing)
         {

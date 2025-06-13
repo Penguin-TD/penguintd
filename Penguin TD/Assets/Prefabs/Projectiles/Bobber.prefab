@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8273456012912338329}
   - component: {fileID: 6743121424025305832}
   - component: {fileID: 2284350252133483377}
-  - component: {fileID: 8511458677299943227}
+  - component: {fileID: 7038254016613620174}
   m_Layer: 0
   m_Name: Bobber
   m_TagString: Untagged
@@ -153,7 +153,7 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &8511458677299943227
+--- !u!114 &7038254016613620174
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -162,6 +162,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 676248602881187668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dacf185d528843e79fdd474972c4abd, type: 3}
+  m_Script: {fileID: 11500000, guid: d782bb6b994b94b72a1c2907c9666945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

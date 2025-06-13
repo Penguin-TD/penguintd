@@ -3,30 +3,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-public class SupportAttackController : MonoBehaviour, IAttackController
+public class SupportAttackController : PenguinAttackController
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private Tower _tower;
-    private GameObject _target;
-    private GameObject _projectile;
-    public Tower Tower
-    {
-        get => _tower;
-        set => _tower = value;
-    }
-
-    public GameObject Target
-    {
-        get => _target;
-        set => _target = value;
-    }
-    public GameObject Projectile
-    {
-        get => _projectile;
-        set => _projectile = value;
-    }
-    
-    [System.Serializable]
     class Level
     {
         public float healDelay = 5f;
@@ -38,7 +16,7 @@ public class SupportAttackController : MonoBehaviour, IAttackController
     [SerializeField] private CircleCollider2D rangeCollider;
     [SerializeField] private LayerMask towerLayer;
     
-    void Update()
+    protected override void Update()
     {
         if (gameObject.GetComponent<TowerPlacement>().isPlacing)
         {
@@ -67,7 +45,6 @@ public class SupportAttackController : MonoBehaviour, IAttackController
             {
                 _tower.cooldown = 0f;
                 _tower.hunger -= healAmount;
-                Debug.Log("Number of targets within range: " + healTargets.Count);
             }
 
             foreach (Tower healTarget in healTargets)

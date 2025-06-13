@@ -7,12 +7,12 @@ public class TowerAttack : MonoBehaviour
     public List<GameObject> targets = new List<GameObject>();
     [SerializeField] private Tower Tower;
     [SerializeField] private GameObject Projectile;
-    private IAttackController attackController;
+    private PenguinAttackController attackController;
     void Awake()
     {
         String ScriptName = Tower.ID + "AttackController";
         System.Type MyScriptType = System.Type.GetType (ScriptName + ",Assembly-CSharp");
-        attackController = (IAttackController)gameObject.AddComponent(MyScriptType);
+        attackController = (PenguinAttackController)gameObject.AddComponent(MyScriptType);
         attackController.Projectile = Projectile;
         attackController.Tower = Tower;
     }

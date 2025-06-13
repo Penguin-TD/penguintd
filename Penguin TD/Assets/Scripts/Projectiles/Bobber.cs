@@ -1,11 +1,12 @@
 using UnityEngine;
 
-public class Bobber : MonoBehaviour, IProjectile
+public class Bobber : MonoBehaviour
 {
-    private Vector3 _direction;
-    private float _speed;
-    private float _damage;
-    private Tower _tower;
+    protected Vector3 _direction;
+    protected float _speed;
+    protected float _damage;
+    protected Tower _tower;
+    protected float _bulletRange; 
 
     public Vector3 Direction
     {
@@ -30,23 +31,29 @@ public class Bobber : MonoBehaviour, IProjectile
         get => _tower;
         set => _tower = value;
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+
+    public float BulletRange
     {
-        
+        get => _bulletRange;
+        set => _bulletRange = value;
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
+        if (!_tower)
+        {
+            Destroy(gameObject);
+        }
+        
         transform.Translate(Vector3.Normalize(_direction) * _speed * Time.deltaTime, Space.World);
-        if (Vector3.Distance(_tower.transform.position, transform.position) > 30)
+        if (Vector3.Distance(_tower.transform.position, transform.position) > _bulletRange)
         {
             Destroy(gameObject);
         }
     }
     
-    private void OnTriggerEnter2D(Collider2D collision) {
+    protected virtual void OnTriggerEnter2D(Collider2D collision) {
         
         if(collision.gameObject.tag == "Enemy")
         {

@@ -36,7 +36,6 @@ public class TowerUpgrades : MonoBehaviour
     {
         if (currentLevel < levels.Length && levels[currentLevel].cost <= Player.main.money)
         {
-	        Debug.Log("have enough money to upgrade tower");
             tower.range = levels[currentLevel].range;
             tower.damage = levels[currentLevel].damage;
             tower.fireRate = levels[currentLevel].fireRate;

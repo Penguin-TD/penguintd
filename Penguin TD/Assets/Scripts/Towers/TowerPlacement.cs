@@ -51,10 +51,8 @@ public class TowerPlacement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Tower over something");
         if ((collision.gameObject.tag == "Restricted" || collision.gameObject.tag == "Tower") && isPlacing)
         {
-            Debug.Log("Tower over restricted area");
             ++isRestricted;
         }
     }

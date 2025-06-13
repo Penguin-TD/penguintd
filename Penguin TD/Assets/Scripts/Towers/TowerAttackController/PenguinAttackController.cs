@@ -1,12 +1,11 @@
 using UnityEngine;
 
-public class PenguinAttackController : MonoBehaviour, IAttackController
+public class PenguinAttackController : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    private Tower _tower;
-    private GameObject _target;
-    private GameObject _projectile;
-
+    protected Tower _tower;
+    protected GameObject _target;
+    protected GameObject _projectile;
+    protected Vector3 _direction;
     public Tower Tower
     {
         get => _tower;
@@ -23,25 +22,28 @@ public class PenguinAttackController : MonoBehaviour, IAttackController
         get => _projectile;
         set => _projectile = value;
     }
-    void Start()
-    {
-    }
-
-    void Update()
+    
+    protected virtual void Update()
     {
         if(_target)
         {
-            transform.right = _target.transform.position - transform.position;
+            _direction = _target.transform.position - transform.position;
+            transform.right = _direction;
             if(_tower.cooldown >= _tower.fireRate)
             {
-                Bobber projectile = Instantiate(_projectile, transform.position, Quaternion.identity).GetComponent<Bobber>();
-                projectile.Direction = (_target.transform.position - transform.position);
-                projectile.Damage = _tower.damage;
-                projectile.Speed = _tower.projectileSpeed;
-                projectile.Tower = _tower;
+                SpawnProjectile();
                 _tower.cooldown = 0.0f;
             }
-            
         }
+    }
+
+    protected virtual void SpawnProjectile()
+    {
+        Bobber projectile = Instantiate(_projectile, transform.position, Quaternion.identity).GetComponent<Bobber>();
+        projectile.Direction = _direction;
+        projectile.Damage = _tower.damage;
+        projectile.Speed = _tower.projectileSpeed;
+        projectile.BulletRange = _tower.bulletRange;
+        projectile.Tower = _tower;
     }
 }
